@@ -10,16 +10,22 @@ var sgOptions = {
         api_key: 'eR1s2I9q2lAN'
     }
 }
-var transporter = nodemailer.createTransport(sgTransport(sgOptions));
+var mailer = nodemailer.createTransport(sgTransport(sgOptions));
 
 // Verify Email Settings
-transporter.verify(function(error, success) {
-   if (error) {
+mailer.verify(function (error, success) {
+    if (error) {
         console.log(error);
-   } else {
+    } else {
         console.log('Server is ready to take our messages');
-   }
+    }
 });
+var email = {
+    to: 'noah@prail.net',
+    from: 'iot@nprail.me',
+    subject: 'Prail.Net IoT Message: Motion Detected',
+    text: 'Motion has been detected on RPiS1.'
+};
 
 // Add the edge detection callback to catch the motion detection events
 pir.watch(function (err, value) {
@@ -29,6 +35,12 @@ pir.watch(function (err, value) {
             console.log('Exit code:', code);
             console.log('Program output:', stdout);
             console.log('Program stderr:', stderr);
+        });
+        mailer.sendMail(email, function (err, res) {
+            if (err) {
+                console.log(err)
+            }
+            console.log(res);
         });
         console.log("Motion Detected: %d", value);
     }
