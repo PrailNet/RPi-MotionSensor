@@ -1,18 +1,16 @@
 var Gpio = require('onoff').Gpio;
 var sh = require('shelljs');
 var nodemailer = require('nodemailer');
+var sgTransport = require('nodemailer-sendgrid-transport');
 // Configure GPIO pin 21 for input and rising edge detection
 var pir = new Gpio(21, 'in', 'rising');
-var smtpConfig = {
-    host: 'smtp.sendgrid.net',
-    port: 587,
-    secure: true, // use SSL
+var sgOptions = {
     auth: {
-        user: 'iot@nprail.me',
-        pass: 'eR1s2I9q2lAN'
+        api_user: 'iot@nprail.me',
+        api_key: 'eR1s2I9q2lAN'
     }
-};
-var transporter = nodemailer.createTransport(smtpConfig);
+}
+var transporter = nodemailer.createTransport(sgTransport(sgOptions));
 
 // Verify Email Settings
 transporter.verify(function(error, success) {
