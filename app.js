@@ -12,7 +12,7 @@ var smtpConfig = {
         pass: 'eR1s2I9q2lAN'
     }
 };
-var transporter = nodemailer.createTransport(options[smtpConfig]);
+var transporter = nodemailer.createTransport(smtpConfig);
 
 // Verify Email Settings
 transporter.verify(function(error, success) {
