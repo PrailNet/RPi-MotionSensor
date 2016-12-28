@@ -8,7 +8,7 @@ var smtpConfig = {
     port: 587,
     secure: true, // use SSL
     auth: {
-        user: 'IoT@NPrail.me',
+        user: 'iot@nprail.me',
         pass: 'eR1s2I9q2lAN'
     }
 };
