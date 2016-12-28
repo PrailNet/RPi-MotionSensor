@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "nodemailer": "^2.7.0",
     "onoff": "^1.1.1",
     "shelljs": "^0.7.5"
   },
