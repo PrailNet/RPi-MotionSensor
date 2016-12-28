@@ -1,0 +1,19 @@
+{
+  "name": "rpi-motion-sensor",
+  "version": "1.0.0",
+  "description": "Raspberry Pi 3 motion sensor that wakes up the display.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrailNetIoT/RPi-MotionSensor.git"
+  },
+  "author": "Prail.Net IoT <noah@prail.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PrailNetIoT/RPi-MotionSensor/issues"
+  },
+  "homepage": "https://github.com/PrailNetIoT/RPi-MotionSensor#readme"
+}
